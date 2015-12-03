@@ -6,10 +6,10 @@ var sinon = require('sinon');
 var expect = require('chai').expect;
 var plugin = require('./');
 
-describe('gulp-octopack plugin', function(){
+describe('gulp-octo plugin', function(){
 
   it('should immediately throw if host not provided', function() {
-    expect(function(){ plugin(); }).to.throw('host details must be provided.');
+    expect(function(){ plugin.pack(); }).to.throw('host details must be provided.');
   });
 
   it('should invoke `octo-pack.push`', function(done) {
@@ -24,7 +24,7 @@ describe('gulp-octopack plugin', function(){
       return {done: function(){}};
     }});
 
-    var packer = plugin({host: 'http://example.org', apiKey: 'ABC'});
+    var packer = plugin.pack({host: 'http://example.org', apiKey: 'ABC'});
 
     packer.once('data', function(){
       expect(spy.calledOnce);

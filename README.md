@@ -1,23 +1,21 @@
-# gulp-octopack
+# gulp-octo
 
 A gulp wrapper for [octopack](https://github.com/OctopusDeploy/octojs) library to push projects to Octopus Deploy
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-octopack)
+Install with [npm](https://npmjs.org/package/gulp-octo)
 
 ```
-npm install --save-dev gulp-octopack
+npm install --save-dev gulp-octo
 ```
 
 
 ## Example
 
 ```js
-
-
 var gulp = require('gulp');
-var octopack = require('gulp-octopack');
+var octopack = require('gulp-octo').pack;
 
 // Simple publish with existing package
 gulp.task('publish', function(){
@@ -40,7 +38,7 @@ gulp.task('packAndPublish', function() {
 
 ## API
 
-### octopack(options)
+### octo.pack(options)
 
 ## Options
 ### options.host

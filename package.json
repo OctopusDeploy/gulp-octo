@@ -1,5 +1,5 @@
 {
-  "name": "gulp-octopack",
+  "name": "gulp-octo",
   "version": "0.0.1",
   "description": "A gulp wrapper for octopack library to push projects to Octopus Deploy",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/OctopusDeploy/gulp-octopack"
+    "url": "git://github.com/OctopusDeploy/gulp-octo"
   },
   "author": "Octopus Deploy <support@octopus.com> (http://octopus.com/)",
   "license": "MIT",

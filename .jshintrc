@@ -1,0 +1,15 @@
+{
+  "camelcase": true,
+  "quotmark": "single",
+  "latedef":        true,
+  "indent":         2,
+  "eqeqeq":         true,
+  "curly":          true,
+  "unused":         true,
+  "strict":         true,
+  "trailing":       true,
+
+  "node": true,
+  "browser": false,
+  "mocha": true
+}

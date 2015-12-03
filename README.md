@@ -14,12 +14,27 @@ npm install --save-dev gulp-octopack
 ## Example
 
 ```js
+
+
 var gulp = require('gulp');
 var octopack = require('gulp-octopack');
 
+// Simple publish with existing package
 gulp.task('publish', function(){
     gulp.src('./bin/myproject.1.1.0.tar')
-        .pipe(octopack({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'})
+        .pipe(octopack({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
+});
+
+// Example creating tar from build artifacts before pushing
+var tar = require('gulp-tar');
+var gzip = require('gulp-gzip');
+
+gulp.task('packAndPublish', function() {
+	var packageJson = require('./package.json');
+	return gulp.src(['**/*', '!src/**/*', '!./gulpfile.js'])
+			.pipe(tar(packageJson.name +'.'+ packageJson.version + '.tar'))
+			.pipe(gzip())
+			.pipe(octopack({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
 });
 ```
 
@@ -37,6 +52,11 @@ Flag to force overwrite of existing packge if one already exists with the same I
 ### options.apiKey
 Key linked to account with `BuiltInFeedPush` permissions. 
 If `options.replace` is set to true and a package with the same ID and version already exists then the `BuiltInFeedAdminister` permission is required.
+
+## Tests
+```
+npm test
+```
 
 ## License
 

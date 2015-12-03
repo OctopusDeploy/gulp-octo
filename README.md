@@ -15,12 +15,12 @@ npm install --save-dev gulp-octo
 
 ```js
 var gulp = require('gulp');
-var octopack = require('gulp-octo').pack;
+var octopush = require('gulp-octo').push;
 
 // Simple publish with existing package
 gulp.task('publish', function(){
     gulp.src('./bin/myproject.1.1.0.tar')
-        .pipe(octopack({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
+        .pipe(octopush({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
 });
 
 // Example creating tar from build artifacts before pushing
@@ -32,13 +32,13 @@ gulp.task('packAndPublish', function() {
 	return gulp.src(['**/*', '!src/**/*', '!./gulpfile.js'])
 			.pipe(tar(packageJson.name +'.'+ packageJson.version + '.tar'))
 			.pipe(gzip())
-			.pipe(octopack({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
+			.pipe(octopush({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
 });
 ```
 
 ## API
 
-### octo.pack(options)
+### octo.push(options)
 
 ## Options
 ### options.host

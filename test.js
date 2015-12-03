@@ -9,7 +9,7 @@ var plugin = require('./');
 describe('gulp-octo plugin', function(){
 
   it('should immediately throw if host not provided', function() {
-    expect(function(){ plugin.pack(); }).to.throw('host details must be provided.');
+    expect(function(){ plugin.push(); }).to.throw('host details must be provided.');
   });
 
   it('should invoke `octo-pack.push`', function(done) {
@@ -24,7 +24,7 @@ describe('gulp-octo plugin', function(){
       return {done: function(){}};
     }});
 
-    var packer = plugin.pack({host: 'http://example.org', apiKey: 'ABC'});
+    var packer = plugin.push({host: 'http://example.org', apiKey: 'ABC'});
 
     packer.once('data', function(){
       expect(spy.calledOnce);

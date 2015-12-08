@@ -20,7 +20,7 @@ describe('gulp-octo plugin', function(){
 
     var spy = sinon.stub(octopack, 'push');
     spy.returns({then: function(succ){
-      succ();
+      succ({Title: 'Title', Version: '1.0.0'});
       return {done: function(){}};
     }});
 

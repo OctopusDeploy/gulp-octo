@@ -3,3 +3,4 @@ node_modules/
 
 # Dev
 .idea
+npm-debug.log

@@ -1,7 +1,7 @@
 {
   "name": "@robert.erez/gulp-octo",
-  "version": "0.0.2",
-  "description": "A gulp wrapper for octopack library to push projects to Octopus Deploy",
+  "version": "0.0.3",
+  "description": "A Gulp wrapper for octopack library to push projects to Octopus Deploy",
   "main": "index.js",
   "scripts": {
     "test": "mocha test.js"
@@ -13,7 +13,7 @@
   "author": "Octopus Deploy <support@octopus.com> (http://octopus.com/)",
   "license": "MIT",
   "dependencies": {
-    "@robert.erez/octo-pack": "~0.0.2",
+    "@robert.erez/octo-pack": "~0.0.4",
     "gulp-util": "^3.0.7",
     "plugin-log": "^0.1.0",
     "through2": "^2.0.0"
@@ -21,6 +21,7 @@
   "devDependencies": {
     "chai": "^3.4.1",
     "mocha": "^2.3.4",
-    "sinon": "^1.17.2"
+    "sinon": "^1.17.2",
+    "vinyl-map": "^1.0.1"
   }
 }

@@ -21,15 +21,16 @@ describe('gulp-octo.push', function(){
       contents: new Buffer('tarcontents')
     });
 
-    var spy = sinon.stub(octopack, 'push');
-    spy.returns({then: function(succ){
-      succ({Title: 'Title', Version: '1.0.0'});
-      return {done: function(){}};
-    }});
+    var spy = sinon.stub(octopack, 'push', function(contents, options, callback){
+      callback(null, {Title: 'Title', Version: '1.0.0'});
+    });
 
     var packer = plugin.push({host: 'http://example.org', apiKey: 'ABC'});
 
-    packer.once('data', function(){
+    packer.once('data', function() {
+      var req = octopack.push.firstCall;
+      console.log(req);
+
       expect(spy.calledOnce);
 
       var pushOptions = spy.firstCall.args;

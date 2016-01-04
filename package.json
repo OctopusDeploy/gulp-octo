@@ -1,6 +1,6 @@
 {
   "name": "@robert.erez/gulp-octo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Gulp wrapper for octopack library to push projects to Octopus Deploy",
   "main": "index.js",
   "scripts": {

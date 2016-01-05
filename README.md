@@ -10,7 +10,6 @@ Install with [npm](https://npmjs.org/package/gulp-octo)
 npm install --save-dev gulp-octo
 ```
 
-
 ## API
 
 ### octo.pack(type, options)
@@ -30,7 +29,7 @@ Defines the `version` component of the created package. By default it will extra
 Required property that points to the Octopus Server instance the package should be pushed to.
 
 #### options.replace
-Flag to force overwrite of existing packge if one already exists with the same ID and version.
+Flag to force overwrite of existing package if one already exists with the same ID and version.
 
 #### options.apiKey
 Key linked to account with `BuiltInFeedPush` permissions. 
@@ -68,7 +67,7 @@ gulp.task('publish', function() {
 ```
 
 #### Pack & Push
-In this example, the project files are first packaged up into a `.tar.gz` file then which is then piped directly to the push module so at no point is the package saved locally. 
+In this example, the project files are first packaged up into a `.tar.gz` file which is then piped directly to the push module. 
 
 ```js
 var octo = require('gulp-octo');

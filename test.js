@@ -1,7 +1,7 @@
 'use strict';
 
 var gutil = require('gulp-util');
-var octopack = require('@robert.erez/octo-pack');
+var octopack = require('@octopusdeploy/octopackjs');
 var sinon = require('sinon');
 var expect = require('chai').expect;
 var plugin = require('./');

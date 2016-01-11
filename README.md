@@ -4,10 +4,10 @@
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/gulp-octo)
+Install with [npm](https://npmjs.org/package/@octopusdeploy/gulp-octo)
 
 ```shell
-npm install --save-dev gulp-octo
+npm install --save-dev @octopusdeploy/gulp-octo
 ```
 
 ## API
@@ -42,7 +42,7 @@ If `options.replace` is set to true and a package with the same ID and version a
 In this example, the default options are used to create a package and save to the bin directory.
 ```js
 var gulp = require('gulp');
-var octopack = require('gulp-octo').pack;
+var octopack = require('@octopusdeploy/gulp-octo').pack;
 
 // Simple package into bin directory
 gulp.task('pack', function() {
@@ -57,7 +57,7 @@ In this example, the default options are used to push a package that is generate
 
 ```js
 var gulp = require('gulp');
-var octopush = require('gulp-octo').push;
+var octopush = require('@octopusdeploy/gulp-octo').push;
 
 // Simple publish with existing package
 gulp.task('publish', function() {
@@ -70,7 +70,7 @@ gulp.task('publish', function() {
 In this example, the project files are first packaged up into a `.tar.gz` file which is then piped directly to the push module. 
 
 ```js
-var octo = require('gulp-octo');
+var octo = require('@octopusdeploy/gulp-octo');
 
 gulp.task('publish', function() {
 	return gulp.src(['**/*', '!src/**/*', '!./gulpfile.js'])

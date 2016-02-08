@@ -26,7 +26,7 @@ Defines the `version` component of the created package. By default it will extra
 ### octo.push(options)
 
 #### options.host
-Required property that points to the Octopus Server instance the package should be pushed to.
+Required property that points to the Octopus Server instance the package should be pushed to. Note that this is _not_ the full path of the package upload url, but just the root url of the server instance. The approprate path will be appended within in the push module.
 
 #### options.replace
 Flag to force overwrite of existing package if one already exists with the same ID and version.

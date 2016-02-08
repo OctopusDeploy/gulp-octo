@@ -1,6 +1,6 @@
 {
   "name": "@octopusdeploy/gulp-octo",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Gulp wrapper for octopack library to push projects to Octopus Deploy",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "author": "Octopus Deploy <support@octopus.com> (http://octopus.com/)",
   "license": "MIT",
   "dependencies": {
-    "@octopusdeploy/octopackjs": "~0.0.1",
+    "@octopusdeploy/octopackjs": "~0.0.3",
     "gulp-util": "^3.0.7",
     "plugin-log": "^0.1.0",
     "through2": "^2.0.0"

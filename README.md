@@ -1,6 +1,6 @@
 # gulp-octo
 
-> A Gulp wrapper for [octopack](https://github.com/OctopusDeploy/octojs) library to push projects to Octopus Deploy
+> A Gulp wrapper for [octopack](https://github.com/OctopusDeploy/octopackjs) library to push projects to Octopus Deploy
 
 ## Install
 

@@ -13,7 +13,7 @@
   "author": "Octopus Deploy <support@octopus.com> (http://octopus.com/)",
   "license": "MIT",
   "dependencies": {
-    "@octopusdeploy/octopackjs": "~0.0.3",
+    "@octopusdeploy/octopackjs": "~0.0.7",
     "gulp-util": "^3.0.7",
     "plugin-log": "^0.1.0",
     "through2": "^2.0.0"

@@ -15,7 +15,7 @@ npm install --save-dev @octopusdeploy/gulp-octo
 ### octo.pack(type, options)
 
 #### type
-Optional parameter to define the package type. Valid values are `targz`, `tar`, `zip` or `nupkg`. If not provided this defaults to `targz`.
+Optional parameter to define the package type. Valid values are `targz`, `tar` or `zip`. If not provided this defaults to `targz`.
 
 #### options.id
 Defines the `Id` component of the created package. By default it will extract the name out of `package.json` if present.

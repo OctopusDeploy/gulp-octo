@@ -62,7 +62,7 @@ var octopush = require('@octopusdeploy/gulp-octo').push;
 // Simple publish with existing package
 gulp.task('publish', function() {
     gulp.src('./bin/myproject.1.1.0.tar')
-        .pipe(octopush({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
+        .pipe(octopush({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'}));
 });
 ```
 
@@ -75,7 +75,7 @@ var octo = require('@octopusdeploy/gulp-octo');
 gulp.task('publish', function() {
 	return gulp.src(['**/*', '!src/**/*', '!./gulpfile.js'])
 			.pipe(octo.pack('tar.gz'))
-			.pipe(octo.push({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'});
+			.pipe(octo.push({host: 'http://octopus-server/', apiKey: 'API-XXXXXXXXX'}));
 });
 ```
 

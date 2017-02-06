@@ -11,7 +11,7 @@
     "url": "git://github.com/OctopusDeploy/gulp-octo"
   },
   "author": "Octopus Deploy <support@octopus.com> (http://octopus.com/)",
-  "license": "MIT",
+  "license": "Apache",
   "dependencies": {
     "@octopusdeploy/octopackjs": "~0.0.7",
     "gulp-util": "^3.0.7",

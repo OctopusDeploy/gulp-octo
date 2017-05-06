@@ -29,7 +29,6 @@ describe('gulp-octo.push', function(){
 
     packer.once('data', function() {
       var req = octopack.push.firstCall;
-      console.log(req);
 
       expect(spy.calledOnce);
 

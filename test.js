@@ -21,7 +21,7 @@ describe('gulp-octo.push', function(){
       contents: new Buffer('tarcontents')
     });
 
-    var spy = sinon.stub(octopack, 'push', function(contents, options, callback){
+    var spy = sinon.stub(octopack, 'push').callsFake(function(contents, options, callback){
       callback(null, {Title: 'Title', Version: '1.0.0'});
     });
 
@@ -29,8 +29,6 @@ describe('gulp-octo.push', function(){
 
     packer.once('data', function() {
       var req = octopack.push.firstCall;
-      console.log(req);
-
       expect(spy.calledOnce);
 
       var pushOptions = spy.firstCall.args;

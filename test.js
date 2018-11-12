@@ -46,22 +46,27 @@ describe('gulp-octo.push', function(){
 describe('gulp-octo.pack', function() {
 
   it('uses package.json for package name default', function(cb) {
-    var spy = sinon.stub(fs, 'readFileSync');
-    spy.returns(JSON.stringify({version: '8.8', name: 'ProjectX'}));
+    this.timeout(12000);
 
-    var stream = plugin.pack();
+
+    var spy = sinon.stub(fs, 'readFileSync');
+    spy.returns(JSON.stringify({version: '8.8.8', name: 'ProjectX'}));
+
+    var stream = plugin.pack({}, function(err, data) {
+      console.log(data)
+    });
 
     addFileAndPipe(stream, function (code, filename) {
-      expect(filename).to.match(/ProjectX\.8\.8\.tar\.gz$/);
+      expect(filename).to.match(/ProjectX\.8\.8\.8\.tar\.gz$/);
       cb();
     });
   });
 
   it('passes optional parameters to package name', function(cb) {
-    var stream = plugin.pack({version: '2.3', id: 'MyPack'});
+    var stream = plugin.pack({version: '2.3.1', id: 'MyPack'});
 
     addFileAndPipe(stream, function (code, filename) {
-      expect(filename).to.match(/MyPack\.2\.3\.tar\.gz$/);
+      expect(filename).to.match(/MyPack\.2\.3\.1\.tar\.gz$/);
       cb();
     });
   });

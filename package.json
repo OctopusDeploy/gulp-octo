@@ -13,6 +13,7 @@
   "author": "Octopus Deploy <support@octopus.com> (http://octopus.com/)",
   "license": "Apache-2.0",
   "dependencies": {
+    "@octopusdeploy/octojs": "^0.1.1",
     "@octopusdeploy/octopackjs": "~0.0.7",
     "gulp-util": "^3.0.7",
     "plugin-log": "^0.1.0",

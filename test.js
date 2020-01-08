@@ -1,13 +1,12 @@
 'use strict';
 
-var gutil = require('gulp-util');
+var Vinyl = require("Vinyl");
 var octopack = require('@octopusdeploy/octopackjs');
 var sinon = require('sinon');
 var expect = require('chai').expect;
 var plugin = require('./');
 var path = require('path');
 var fs = require('fs');
-var vinylMap = require('vinyl-map');
 
 describe('gulp-octo.push', function(){
 
@@ -16,9 +15,9 @@ describe('gulp-octo.push', function(){
   });
 
   it('invokes `octo-pack.push`', function(done) {
-    var pkg = new gutil.File({
+    var pkg = new Vinyl({
       path: __dirname + '/bin/project.1.0.0.tar.gz',
-      contents: new Buffer('tarcontents')
+      contents: Buffer.from('tarcontents')
     });
 
     var spy = sinon.stub(octopack, 'push').callsFake(function(contents, options, callback){
@@ -43,7 +42,7 @@ describe('gulp-octo.push', function(){
 
 });
 
-describe('gulp-octo.pack', function() {
+describe('gulp-octo.pack', function(callback) {
 
   it('uses package.json for package name default', function(cb) {
     var spy = sinon.stub(fs, 'readFileSync');
@@ -51,32 +50,38 @@ describe('gulp-octo.pack', function() {
 
     var stream = plugin.pack();
 
-    addFileAndPipe(stream, function (code, filename) {
-      expect(filename).to.match(/ProjectX\.8\.8\.tar\.gz$/);
-      cb();
+    stream.on('data', file => {
+      expect(file.path).to.match(/ProjectX\.8\.8\.tar\.gz$/);
     });
+
+    stream.on('end', cb);
+
+    stream.write(new Vinyl({
+      cwd: __dirname,
+      base: path.join(__dirname, 'fixture'),
+      path: path.join(__dirname, 'fixture/fixture.txt'),
+      contents: Buffer.from('hello world')
+    }));
+
+    stream.end();
   });
 
   it('passes optional parameters to package name', function(cb) {
     var stream = plugin.pack({version: '2.3', id: 'MyPack'});
 
-    addFileAndPipe(stream, function (code, filename) {
-      expect(filename).to.match(/MyPack\.2\.3\.tar\.gz$/);
-      cb();
+    stream.on('data', file => {
+      expect(file.path).to.match(/MyPack\.2\.3\.tar\.gz$/);
     });
-  });
 
-  function addFileAndPipe(stream, cb){
-    stream.write(new gutil.File({
+    stream.on('end', cb);
+
+    stream.write(new Vinyl({
       cwd: __dirname,
       base: path.join(__dirname, 'fixture'),
       path: path.join(__dirname, 'fixture/fixture.txt'),
-      contents: new Buffer('hello world')
+      contents: Buffer.from('hello world')
     }));
 
-    var evaluate = vinylMap(cb);
-
     stream.end();
-    stream.pipe(evaluate);
-  }
+  });
 });

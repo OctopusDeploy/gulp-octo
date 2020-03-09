@@ -1,6 +1,6 @@
 'use strict';
 
-var Vinyl = require("Vinyl");
+var Vinyl = require("vinyl");
 var octopack = require('@octopusdeploy/octopackjs');
 var sinon = require('sinon');
 var expect = require('chai').expect;

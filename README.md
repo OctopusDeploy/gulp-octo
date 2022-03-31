@@ -1,4 +1,5 @@
-# gulp-octo
+⛔️ DEPRECATED
+This project is no longer maintained, consider using https://github.com/OctopusDeploy/api-client.ts instead
 
 > A Gulp wrapper for [octopack](https://github.com/OctopusDeploy/octopackjs) library to push projects to Octopus Deploy
 
